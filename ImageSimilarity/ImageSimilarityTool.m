@@ -67,52 +67,34 @@
     return grayImage;
 }
 
-+ (CFDataRef)getDataRef:(UIImage *)image
-{
-    CGImageRef imgref = image.CGImage;
-    size_t width = CGImageGetWidth(imgref);
-    size_t height = CGImageGetHeight(imgref);
-    size_t bitsPerComponent = CGImageGetBitsPerComponent(imgref);
-    size_t bitsPerPixel = CGImageGetBitsPerPixel(imgref);
-    size_t bytesPerRow = CGImageGetBytesPerRow(imgref);
-    
-    CGColorSpaceRef colorSpace = CGImageGetColorSpace(imgref);
-    CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imgref);
-    
-    bool shouldInterpolate = CGImageGetShouldInterpolate(imgref);
-    
-    CGColorRenderingIntent intent = CGImageGetRenderingIntent(imgref);
-    
-    CGDataProviderRef dataProvider = CGImageGetDataProvider(imgref);
-    
-    CFDataRef data = CGDataProviderCopyData(dataProvider);
-    return data;
-}
-
 //简化色彩。将缩小后的图片，转为64级灰度。
 + (UIImage*)getGrayImage:(UIImage*)sourceImage origin:(UIImage *)orimage
 {
    
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        CGImageRef imgref = sourceImage.CGImage;
-        size_t width = CGImageGetWidth(imgref);
-        size_t height = CGImageGetHeight(imgref);
-        size_t bitsPerComponent = CGImageGetBitsPerComponent(imgref);
-        size_t bitsPerPixel = CGImageGetBitsPerPixel(imgref);
-        size_t bytesPerRow = CGImageGetBytesPerRow(imgref);
+        CGImageRef imgrefA = sourceImage.CGImage;
+        CGImageRef imgrefB = orimage.CGImage;
+        size_t width = CGImageGetWidth(imgrefA);
+        size_t height = CGImageGetHeight(imgrefA);
+        size_t bitsPerComponent = CGImageGetBitsPerComponent(imgrefA);
+        size_t bitsPerPixel = CGImageGetBitsPerPixel(imgrefA);
+        size_t bytesPerRow = CGImageGetBytesPerRow(imgrefA);
 //
-        CGColorSpaceRef colorSpace = CGImageGetColorSpace(imgref);
-        CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imgref);
+        CGColorSpaceRef colorSpace = CGImageGetColorSpace(imgrefA);
+        CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imgrefA);
         
-        bool shouldInterpolate = CGImageGetShouldInterpolate(imgref);
+        bool shouldInterpolate = CGImageGetShouldInterpolate(imgrefA);
         
-        CGColorRenderingIntent intent = CGImageGetRenderingIntent(imgref);
+        CGColorRenderingIntent intent = CGImageGetRenderingIntent(imgrefA);
         
-//        CGDataProviderRef dataProvider = CGImageGetDataProvider(imgref);
+        CGDataProviderRef dataProviderA = CGImageGetDataProvider(imgrefA);
 //
-//        CFDataRef data = CGDataProviderCopyData(dataProvider);
-        CFDataRef dataA = [ImageSimilarityTool getDataRef:sourceImage];
-        CFDataRef dataB = [ImageSimilarityTool getDataRef:orimage];
+        CFDataRef dataA = CGDataProviderCopyData(dataProviderA);
+    
+        CGDataProviderRef dataProviderB = CGImageGetDataProvider(imgrefB);
+    //
+        CFDataRef dataB = CGDataProviderCopyData(dataProviderB);
+    
         
         UInt8 *bufferA = (UInt8*)CFDataGetBytePtr(dataA);//Returns a read-only pointer to the bytes of a CFData object.// 首地址
         UInt8 *bufferB = (UInt8*)CFDataGetBytePtr(dataB);
@@ -132,7 +114,7 @@
                     *(tmp + 1) = labs(*(tmp + 1) - *(tmpB + 1));//green
                     *(tmp + 2) = labs(*(tmp + 2) - *(tmpB + 2));// Blue
                     if (*tmp == 0 && *(tmp+1) == 0 && *(tmp + 2) == 0) {
-                        *tmp = *(tmp+1) = *(tmp + 2) = 109;//相同点，置灰
+                        *tmp = *(tmp+1) = *(tmp + 2) = 232;//相同点，置灰
                     }
                 }
             }
