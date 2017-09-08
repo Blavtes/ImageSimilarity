@@ -19,6 +19,8 @@
 		574715F41F3AA1BE009B0BB4 /* ImageSimilarityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 574715F31F3AA1BE009B0BB4 /* ImageSimilarityTool.m */; };
 		576642471F6147F300B8367E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576642461F6147F300B8367E /* OpenAL.framework */; };
 		576642491F6147F600B8367E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576642481F6147F600B8367E /* OpenGLES.framework */; };
+		576642501F62253000B8367E /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 5766424E1F62253000B8367E /* 12.png */; };
+		576642511F62253000B8367E /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 5766424F1F62253000B8367E /* 13.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		574715F31F3AA1BE009B0BB4 /* ImageSimilarityTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSimilarityTool.m; sourceTree = "<group>"; };
 		576642461F6147F300B8367E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		576642481F6147F600B8367E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		5766424E1F62253000B8367E /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
+		5766424F1F62253000B8367E /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				574715DA1F3A9946009B0BB4 /* ViewController.m */,
 				574715F21F3AA1BE009B0BB4 /* ImageSimilarityTool.h */,
 				574715F31F3AA1BE009B0BB4 /* ImageSimilarityTool.m */,
+				5766424E1F62253000B8367E /* 12.png */,
+				5766424F1F62253000B8367E /* 13.png */,
 				574715EE1F3A9A10009B0BB4 /* b.png */,
 				574715EA1F3A9A04009B0BB4 /* c.png */,
 				574715F01F3A9DE6009B0BB4 /* d.png */,
@@ -169,7 +175,9 @@
 			files = (
 				574715F11F3A9DE6009B0BB4 /* d.png in Resources */,
 				574715E31F3A9946009B0BB4 /* LaunchScreen.storyboard in Resources */,
+				576642501F62253000B8367E /* 12.png in Resources */,
 				574715EB1F3A9A04009B0BB4 /* c.png in Resources */,
+				576642511F62253000B8367E /* 13.png in Resources */,
 				574715E01F3A9946009B0BB4 /* Assets.xcassets in Resources */,
 				574715EF1F3A9A10009B0BB4 /* b.png in Resources */,
 				574715DE1F3A9946009B0BB4 /* Main.storyboard in Resources */,

@@ -292,6 +292,18 @@
     return resultUIImage;
 }
 
+-(UIImage *)getImageFromGrayPixels:(unsigned char *)buff pixelsWidth:(int)pixelsWidth pixelsHigh:(int)pixelsHigh{
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray() ;
+    int bitmapBytesPerRow   = pixelsWidth ;
+    CGContextRef  contextRef = CGBitmapContextCreate(buff,pixelsWidth,pixelsHigh,8,  bitmapBytesPerRow,colorSpace,kCGImageAlphaNone);
+    CGImageRef imageRef = CGBitmapContextCreateImage(contextRef);
+    UIImage *image = [UIImage imageWithCGImage:imageRef];
+    CGColorSpaceRelease(colorSpace);
+    CGContextRelease(contextRef);
+    CGImageRelease(imageRef);
+    return image ;
+}
+
 
 
 @end

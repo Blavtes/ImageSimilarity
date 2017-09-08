@@ -23,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UIImage *a = [UIImage imageNamed:@"d.png"];
-    UIImage *b = [UIImage imageNamed:@"b.png"];
+    UIImage *a = [UIImage imageNamed:@"12.png"];
+    UIImage *b = [UIImage imageNamed:@"13.png"];
     UIImage *c = [UIImage imageNamed:@"c.png"];
  
     NSString *r1 = [ImageSimilarityTool compareImage:a source:b];
