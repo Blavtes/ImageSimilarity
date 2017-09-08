@@ -11,4 +11,8 @@
 
 @interface ImageSimilarityTool : NSObject
 + (NSString *)compareImage:(UIImage *)originImage source:(UIImage *)sourceImage;
++ (UIImage *)covertToGrayScale:(UIImage *)originImage source:(UIImage *)sourceImage;
++ (UIImage*)getGrayImage:(UIImage*)sourceImage;
+
++ (UIImage*)getGrayImage:(UIImage*)sourceImage origin:(UIImage *)orimage;
 @end
