@@ -15,4 +15,5 @@
 + (UIImage*)getGrayImage:(UIImage*)sourceImage;
 
 + (UIImage*)getGrayImage:(UIImage*)sourceImage origin:(UIImage *)orimage;
++ (UIImage *)normalizationImage:(UIImage *)sourceImage;
 @end

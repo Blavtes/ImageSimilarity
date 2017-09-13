@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageSimilarity/ImageSimilarityTool.m"
-            timestampString = "526526031.76587"
+            timestampString = "526958584.350976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "+getGrayImage:origin:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageSimilarity/ImageSimilarityTool.m"
-            timestampString = "526526031.76587"
+            timestampString = "526958584.350976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "+getGrayImage:origin:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageSimilarity/ImageSimilarityTool.m"
-            timestampString = "526526031.76587"
+            timestampString = "526958584.350976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "+getGrayImage:origin:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,12 +58,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageSimilarity/ImageSimilarityTool.m"
-            timestampString = "526526031.76587"
+            timestampString = "526958584.350976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "+getGrayImage:origin:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageSimilarity/ImageSimilarityTool.m"
+            timestampString = "526958584.350976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "+twoChangeImage:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

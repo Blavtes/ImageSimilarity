@@ -67,6 +67,66 @@
     return grayImage;
 }
 
+//归一
++ (UIImage *)normalizationImage:(UIImage *)sourceImage
+{
+    CGImageRef imgrefA = sourceImage.CGImage;
+    size_t width = CGImageGetWidth(imgrefA);
+    size_t height = CGImageGetHeight(imgrefA);
+    size_t bitsPerComponent = CGImageGetBitsPerComponent(imgrefA);
+    size_t bitsPerPixel = CGImageGetBitsPerPixel(imgrefA);
+    size_t bytesPerRow = CGImageGetBytesPerRow(imgrefA);
+    CGColorSpaceRef colorSpace = CGImageGetColorSpace(imgrefA);
+    CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imgrefA);
+    
+    bool shouldInterpolate = CGImageGetShouldInterpolate(imgrefA);
+    
+    CGColorRenderingIntent intent = CGImageGetRenderingIntent(imgrefA);
+    
+    CGDataProviderRef dataProviderA = CGImageGetDataProvider(imgrefA);
+    //
+    CFDataRef dataA = CGDataProviderCopyData(dataProviderA);
+    UInt8 *bufferA = (UInt8*)CFDataGetBytePtr(dataA);
+    NSUInteger  x, y;
+    // 像素矩阵遍历，改变成自己需要的值
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            UInt8 *tmp;
+            tmp = bufferA + y * bytesPerRow + x * 4;
+            
+            UInt8 alpha;
+            alpha = *(tmp + 3);
+            if (alpha) {// 透明不处理 其他变成红色
+                
+                *tmp = *(tmp) / MAX((*(tmp + 1) + *(tmp + 2) + *(tmp)),0.00001) * 255;
+                                     
+               *(tmp+1) = *(tmp + 1) / MAX((*(tmp + 1) + *(tmp + 2) + *(tmp)),0.00001)  * 255;
+                *(tmp+2) = *(tmp + 2) / MAX((*(tmp + 1) + *(tmp + 2) + *(tmp)),0.00001) * 255;
+            }
+        }
+    }
+    CFDataRef effectedData = CFDataCreate(NULL, bufferA, CFDataGetLength(dataA));
+    
+    CGDataProviderRef effectedDataProvider = CGDataProviderCreateWithCFData(effectedData);
+    // 生成一张新的位图
+    CGImageRef effectedCgImage = CGImageCreate(
+                                               width, height,
+                                               bitsPerComponent, bitsPerPixel, bytesPerRow,
+                                               colorSpace, bitmapInfo, effectedDataProvider,
+                                               NULL, shouldInterpolate, intent);
+    
+    UIImage *effectedImage = [[UIImage alloc] initWithCGImage:effectedCgImage];
+    
+    CGImageRelease(effectedCgImage);
+    
+    CFRelease(effectedDataProvider);
+    
+    CFRelease(effectedData);
+    
+    CFRelease(dataA);
+    return effectedImage;
+}
+
 //简化色彩。将缩小后的图片，转为64级灰度。
 + (UIImage*)getGrayImage:(UIImage*)sourceImage origin:(UIImage *)orimage
 {

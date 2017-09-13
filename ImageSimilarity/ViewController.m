@@ -32,7 +32,8 @@
     NSString *r3 = [ImageSimilarityTool compareImage:b source:c];
     NSLog(@"r1 %@ r2 %@ r3 %@",r1,r2,r3);
 //    _a.image =  [ImageSimilarityTool covertToGrayScale:a source:b];
-    _a.image =  [ImageSimilarityTool getGrayImage:a origin:b];
+//    _a.image =  [ImageSimilarityTool getGrayImage:a origin:b];
+    _a.image = [ImageSimilarityTool normalizationImage:c];
 }
 
 
